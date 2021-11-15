@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:lab5WpfApp1"
+        xmlns:local="clr-namespace:lab5WpfApp1" xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib" xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="300" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="400" Width="500" WindowStartupLocation="CenterScreen">
     <Window.CommandBindings>   
         <CommandBinding Command="Open" Executed="OpenExecuted"/>
         <CommandBinding Command="Save" Executed="SaveExecuted"/>
@@ -14,6 +14,7 @@
     </Window.CommandBindings>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -31,6 +32,14 @@
             <MenuItem Header="Справка" Command="Help">
             </MenuItem>
         </Menu>
-        <TextBox x:Name="textBox1" Grid.Row="1" TextWrapping="Wrap" Padding="5" Margin="3" VerticalScrollBarVisibility="Auto"/>
+        <ToolBarTray Grid.Row="1">
+            <ToolBar>
+                <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="150" ItemsSource="{StaticResource fonts}" SelectionChanged="ComboBox_SelectionChanged">                    
+                </ComboBox>
+                <ComboBox Margin="5" Padding="5" SelectedIndex="2" Width="50" ItemsSource="{StaticResource heights}" SelectionChanged="ComboBox_SelectionChanged_1" >                   
+                </ComboBox>
+            </ToolBar>
+        </ToolBarTray>
+        <TextBox x:Name="textBox1" Grid.Row="2" TextWrapping="Wrap" Padding="5" Margin="3" VerticalScrollBarVisibility="Auto"/>
     </Grid> 
 </Window>

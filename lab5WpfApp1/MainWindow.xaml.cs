@@ -57,5 +57,22 @@ namespace lab5WpfApp1
             MessageBox.Show("Справка по приложению");
         }
 
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string fontName = (sender as ComboBox).Text;
+            if (textBox1 != null)
+            {
+                textBox1.FontFamily = new FontFamily(fontName);
+            }
+        }
+
+        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            double fontHeight = (double)(sender as ComboBox).SelectedValue;
+            if (textBox1 != null)
+            {
+                textBox1.FontSize = fontHeight;
+            }
+        }
     }
 }
