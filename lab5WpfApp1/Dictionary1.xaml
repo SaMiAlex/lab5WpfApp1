@@ -16,4 +16,5 @@
         <system:Double>22</system:Double>
         <system:Double>24</system:Double>
     </collections:ArrayList>
+
 </ResourceDictionary>

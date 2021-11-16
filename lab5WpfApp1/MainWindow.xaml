@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab5WpfApp1" xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib" xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="500" WindowStartupLocation="CenterScreen">
-    <Window.CommandBindings>   
+        Title="MainWindow" Height="400" Width="500" WindowStartupLocation="CenterScreen" Style="{DynamicResource WindowStyle}">
+
+    <Window.CommandBindings>
         <CommandBinding Command="Open" Executed="OpenExecuted"/>
         <CommandBinding Command="Save" Executed="SaveExecuted"/>
-        <CommandBinding Command="Close" Executed="ExitExecuted"/>        
-        <CommandBinding Command="Help" Executed="HelpExecuted"/>        
+        <CommandBinding Command="Close" Executed="ExitExecuted"/>
+        <CommandBinding Command="Help" Executed="HelpExecuted"/>
     </Window.CommandBindings>
     <Grid>
         <Grid.RowDefinitions>
@@ -18,28 +19,32 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Menu Margin="5" Padding="5">
+        <Menu Style="{DynamicResource MenuStyle}">
+            
             <MenuItem Header="Файл">
-                <MenuItem Header="_Открыть" Command="Open"/>
-                <MenuItem Header="_Сохранить" Command="Save"/>
-                <Separator/>
-                <MenuItem Header="_Выход" Command="Close"/>                
+                <MenuItem Header="_Открыть" Command="Open" Style="{DynamicResource MenuStyle}"/>
+                <MenuItem Header="_Сохранить" Command="Save" Style="{DynamicResource MenuStyle}"/>
+                <Separator Style="{DynamicResource MenuItemStyle}"/>
+                <MenuItem Header="_Выход" Command="Close" Style="{DynamicResource MenuStyle}"/>
             </MenuItem>
-            <MenuItem Header="Правка">
-                <MenuItem Header="Копировать" Command="Copy" CommandTarget="{Binding ElementName=textBox1}"/>
-                <MenuItem Header="Вставить" Command="Paste" CommandTarget="{Binding ElementName=textBox1}"/>                
+
+            <MenuItem Header="Правка" Style="{DynamicResource MenuStyle}">
+                <MenuItem Header="Копировать" Command="Copy" CommandTarget="{Binding ElementName=textBox1}" Style="{DynamicResource MenuStyle}"/>
+                <MenuItem Header="Вставить" Command="Paste" CommandTarget="{Binding ElementName=textBox1}" Style="{DynamicResource MenuStyle}"/>
             </MenuItem>
-            <MenuItem Header="Справка" Command="Help">
+            
+            <MenuItem Header="Справка" Command="Help" Style="{DynamicResource MenuStyle}">
             </MenuItem>
-        </Menu>
-        <ToolBarTray Grid.Row="1">
-            <ToolBar>
-                <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="150" ItemsSource="{StaticResource fonts}" SelectionChanged="ComboBox_SelectionChanged">                    
+
+        </Menu>        
+            <ToolBar Grid.Row="1"  Style="{DynamicResource ToolBarStyle}" TabIndex="0">
+                <ComboBox SelectedIndex="0" Width="150" ItemsSource="{StaticResource fonts}" SelectionChanged="ComboBox_SelectionChanged" Style="{DynamicResource ComboBoxStyle}">
                 </ComboBox>
-                <ComboBox Margin="5" Padding="5" SelectedIndex="2" Width="50" ItemsSource="{StaticResource heights}" SelectionChanged="ComboBox_SelectionChanged_1" >                   
+                <ComboBox SelectedIndex="2" Width="50" ItemsSource="{StaticResource heights}" SelectionChanged="ComboBox_SelectionChanged_1" Style="{DynamicResource ComboBoxStyle}">
                 </ComboBox>
+                <ComboBox x:Name="styleBox" Width="150" Style="{DynamicResource ComboBoxStyle}" HorizontalAlignment="Right"/>
             </ToolBar>
-        </ToolBarTray>
-        <TextBox x:Name="textBox1" Grid.Row="2" TextWrapping="Wrap" Padding="5" Margin="3" VerticalScrollBarVisibility="Auto"/>
-    </Grid> 
+      
+        <TextBox x:Name="textBox1" Grid.Row="2" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle}"/>
+    </Grid>
 </Window>
