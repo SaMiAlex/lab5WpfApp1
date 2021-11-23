@@ -38,11 +38,10 @@
 
         </Menu>        
             <ToolBar Grid.Row="1"  Style="{DynamicResource ToolBarStyle}" TabIndex="0">
-                <ComboBox SelectedIndex="0" Width="150" ItemsSource="{StaticResource fonts}" SelectionChanged="ComboBox_SelectionChanged" Style="{DynamicResource ComboBoxStyle}">
+            <ComboBox SelectedIndex="0" Width="150" ItemsSource="{Binding Source={StaticResource fonts}}" SelectionChanged="ComboBox_SelectionChanged" Style="{DynamicResource ComboBoxStyle}">
                 </ComboBox>
-                <ComboBox SelectedIndex="2" Width="50" ItemsSource="{StaticResource heights}" SelectionChanged="ComboBox_SelectionChanged_1" Style="{DynamicResource ComboBoxStyle}">
-                </ComboBox>
-                <ComboBox x:Name="styleBox" Width="150" Style="{DynamicResource ComboBoxStyle}" HorizontalAlignment="Right"/>
+            <ComboBox Width="50" ItemsSource="{Binding Source={StaticResource heights}}" SelectionChanged="ComboBox_SelectionChanged_1" Style="{DynamicResource ComboBoxStyle}"/>
+            <ComboBox x:Name="styleBox" Width="150" Style="{DynamicResource ComboBoxStyle}" HorizontalAlignment="Right"/>  
             </ToolBar>
       
         <TextBox x:Name="textBox1" Grid.Row="2" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle}"/>
